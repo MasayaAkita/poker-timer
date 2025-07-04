@@ -1,0 +1,27 @@
+{
+  "name": "ポーカータイマー",
+  "short_name": "PokerTimer",
+  "description": "ポーカートーナメント用のタイマーアプリ",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#017165",
+  "theme_color": "#38dcd5",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["games", "utilities"],
+  "lang": "ja",
+  "scope": "/",
+  "related_applications": [],
+  "prefer_related_applications": false
+}
