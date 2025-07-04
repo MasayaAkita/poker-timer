@@ -20,6 +20,8 @@
 
 このアプリは GitHub Pages で公開されています。
 
+**公開URL**: https://masayaakita.github.io/poker-timer/
+
 ### 設定手順
 
 1. GitHub リポジトリの Settings → Pages
