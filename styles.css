@@ -1,11 +1,6 @@
-@font-face {
-  font-family: "myfont";
-  src: url("../fonts/MADENZ.ttf") format("truetype");
-}
-
 /* 全体の背景色とレイアウト */
 body {
-    font-family: 'myfont', 'Helvetica', sans-serif, 'メイリオ', 'MS Pゴシック'; /* 日本語フォントに対応 */
+    font-family: 'Orbitron', 'Noto Sans JP', 'Helvetica', sans-serif, 'メイリオ', 'MS Pゴシック'; /* 日本語フォントに対応 */
     background-color: #017165; /* 薄緑の背景 */
     margin: 0;
     padding: 0;
