@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポーカータイマー</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- PWA manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- PWA meta tags -->
+    <meta name="theme-color" content="#38dcd5">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ポーカータイマー">
+    <meta name="msapplication-TileColor" content="#017165">
+    <meta name="msapplication-TileImage" content="icon-192.png">
+    
+    <!-- PWA icons -->
+    <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+</head>
+<body>
+    <div id="layout-wrapper" style="display:flex; flex-direction:row; align-items:stretch; min-height:100vh;">
+        <div id="container">
+            <div id="timer">
+                <div id="main-content">
+                    <h1>ポーカータイマー</h1>
+                    <!-- LEVEL と 制限時間を横並びにするためにコンテナを追加 -->
+                    <div id="level-time-container">
+                        <div id="time">10:00</div>
+                        <div id="level" style="margin-top: 0.5em;">LEVEL 1</div>
+                    </div>
+                    <div id="blinds" style="justify-content: center;">
+                        <div id="big-small-blind">
+                            <span>BB/SB</span> <div>500/250</div>
+                        </div>
+                        <div id="ante">
+                            <span>Ante</span> <div>50</div>
+                        </div>
+                    </div>
+                    <div id="next-blinds">
+                        <div id="next-big-small-blind">
+                            <span>Next</span> <div>1000/500(100)</div>
+                        </div>
+                    </div>
+                    <div id="controls">
+                        <button id="reset-button">リセット</button>
+                        <button id="stop-button">ストップ</button>
+                        <button id="resume-button">再開</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="side-settings-panel">
+            <form id="settings-form" style="display:flex; flex-direction:column; gap:1em;">
+                <label>制限時間(分): <input type="number" id="input-time" min="1" value="5" style="width:5em;"></label>
+                <label>BB: <input type="number" id="input-bb" min="1" value="10" style="width:5em;"></label>
+                <label>SB: <input type="number" id="input-sb" min="1" value="5" style="width:5em;"></label>
+                <label>Ante: <input type="number" id="input-ante" min="0" value="10" style="width:5em;"></label>
+                <label>Next Blinds: <input type="text" id="input-next-blinds" value="20/10(20)" style="width:8em;"></label>
+                <button type="button" id="apply-settings">設定</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Service Worker の登録
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registered successfully:', registration);
+                    })
+                    .catch(error => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+/* 全体の背景色とレイアウト */
+body {
+    font-family: 'Orbitron', 'Noto Sans JP', 'Helvetica', sans-serif, 'メイリオ', 'MS Pゴシック'; /* 日本語フォントに対応 */
+    background-color: #017165; /* 薄緑の背景 */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* 画面サイズに合わせて高さを設定 */
+}
+
+#layout-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    min-height: 0;
+    height: auto;              /* ← ここを100vhからautoに変更 */
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    padding: 2em 2em 1em 2em;  /* ← 下パディングを1emに減らす */
+    box-sizing: border-box;
+    gap: 2em;
+}
+
+#container {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* 高さを減らす */
+    background: rgba(0, 0, 0, 0.0);
+    border-radius: 20px;
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+#side-settings-panel {
+    min-width: 260px;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 2em 1.5em 2em 1.5em;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    height: 80vh; /* containerと高さを揃える */
+    box-sizing: border-box;
+    margin-left: 2em;
+    margin-top: 2em;
+}
+
+#main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #38dcd5;
+    justify-content: center;
+    margin-top: 4em;      /* 上の余白をさらに多く */
+    margin-bottom: 0;     /* 下の余白はなし */
+}
+
+#timer {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#level-time-container {
+    display: flex;
+    flex-direction: column; /* 縦並びに変更 */
+    align-items: center;    /* 中央寄せ */
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 2.5em;
+    gap: 0.5em;
+}
+
+#level {
+    text-align: center;
+    margin-top: 0.5em;
+    font-size: clamp(2rem, 3vw, 3.5rem); /* 少し小さく調整 */
+    font-weight: bold;
+    color: #38dcd5;
+}
+
+#time {
+    font-size: clamp(5rem, 10vw, 12rem); /* さらに大きく */
+    font-weight: bold;
+    color: #a0f0f0;
+    min-width: 7em;
+    text-align: center; /* 中央揃えに変更 */
+}
+
+#blinds {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* 中央寄せ */
+    align-items: flex-end;
+    width: 100%;
+    font-size: clamp(2.4rem, 4.4vw, 4.4rem);
+    margin-bottom: 2%;
+    gap: 2em;
+    color: #38dcd5;
+}
+
+#big-small-blind, #ante {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 5%;
+    color: #38dcd5;
+}
+
+#big-small-blind div, #ante div {
+    font-size: clamp(3rem, 5.6vw, 5.6rem);
+    font-weight: bold;
+    color: #a0f0f0; /* 実数値の色 */
+}
+
+#next-blinds {
+    font-size: clamp(2.4rem, 4.4vw, 4.4rem); /* 約2倍に */
+    margin-top: 2%;
+    color: #38dcd5;
+}
+
+#next-blinds span {
+    color: #38dcd5; /* 実数値の色 */
+}
+
+#next-blinds div {
+    color: #a0f0f0; /* 実数値の色 */
+}
+
+#settings-form label {
+    display: flex;
+    align-items: center;      /* 追加：縦中央揃え */
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1.2em;
+    margin-bottom: 0.7em;
+    color: #38dcd5;
+}
+
+#settings-form input {
+    margin-left: 0.5em;
+    font-size: 1.2em;
+    padding: 0.3em 0.5em;
+    color: #063732;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #38dcd5;
+}
+
+#settings-form button {
+    margin-top: 1em;
+    width: 100%;
+    font-size: 1.2em;
+    padding: 0.5em 0;
+    color: #fff;
+    background: #017165;
+    border: 2px solid #fff;
+    border-radius: 5px;
+}
+
+#controls {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+button {
+    margin-top: 0;
+    padding: 0.7em 1.5em;
+    font-size: 1.1em;
+    cursor: pointer;
+    background-color: #017165;
+    color: white;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    transition: background 0.2s, color 0.2s;
+    min-width: 100px;
+    white-space: nowrap;
+}
+
+button:hover:enabled {
+    background-color: #38dcd5;
+    color: #017165;
+    border-color: #fff;
+}
+
+button:disabled {
+    background-color: #ccc;
+    color: #888;
+    border-color: #fff;
+    cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+  #layout-wrapper {
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 0.5em;
+    height: auto;
+    min-height: 0;
+  }
+  #timer {
+    flex-direction: column;
+    align-items: center;
+  }
+  #side-settings-panel {
+    margin-left: 0;
+    margin-top: 2em;
+    width: 100%;
+    align-items: center;
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  #container {
+    padding: 2% 1%;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  #time {
+    font-size: 2.5rem;
+  }
+}
